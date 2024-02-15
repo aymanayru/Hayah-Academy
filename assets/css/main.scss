@@ -1,0 +1,1223 @@
+@import "sass/variables", "sass/mixins", "sass/global", "sass/components",
+  "sass/navbar", "sass/footer";
+
+/********************* Start Slider section *********************/
+
+.home-sec {
+  .home-item {
+    position: relative;
+    height: calc(100vh - 111px);
+    display: flex;
+    align-items: center;
+
+    // @media screen and (max-width: $screen-lg) {
+    //   height: 400px;
+    // }
+
+    @media screen and (max-width: $screen-sm) {
+      height: 500px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.5);
+      z-index: -1;
+    }
+
+    .home-img {
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+
+    .content {
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      @media screen and (max-width: $screen-sm) {
+        width: 100%;
+      }
+
+      .title {
+        font-size: 22px;
+        color: $white;
+
+        @media screen and (max-width: $screen-xs) {
+          font-size: 17px;
+        }
+      }
+
+      .desc {
+        font-size: 15px;
+        color: $white;
+
+        @media screen and (max-width: $screen-xs) {
+          font-size: 13px;
+        }
+      }
+
+      .main-btn {
+        width: fit-content;
+      }
+    }
+  }
+
+  .owl-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 120px;
+    display: grid;
+    gap: 16px;
+    z-index: 1;
+
+    .owl-next,
+    .owl-prev {
+      width: 40px;
+      height: 40px;
+      border-radius: 5px;
+      background-color: rgba($color: $main, $alpha: 0.06) !important;
+      border: 1px solid $white !important;
+      color: $white !important;
+      @include center;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke-width: 0.3px;
+      -webkit-text-stroke-color: $white;
+    }
+  }
+
+  .owl-dots {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @include dir-right(120px);
+    @include center;
+    flex-direction: column;
+    gap: 12px;
+
+    @media screen and (max-width: $screen-md) {
+      display: none !important;
+    }
+
+    .owl-dot {
+      @include circle(20px);
+      position: relative;
+      transition: $main-transition;
+      background-color: rgba($color: #000000, $alpha: 0.3);
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        @include circle(5px);
+        background-color: $white;
+      }
+
+      &.active {
+        background-color: rgba($color: $main, $alpha: 0.6);
+      }
+    }
+  }
+}
+
+/********************* End Slider section *********************/
+
+/********************* Start About section *********************/
+
+.about-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+
+  @media screen and (max-width: $screen-lg) {
+    flex-direction: column;
+    gap: 45px;
+  }
+
+  .about-img {
+    width: 360px;
+    height: 400px;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: $main-shadow;
+    border: 5px solid $white;
+    border-radius: 7px;
+
+    @media screen and (max-width: $screen-xs) {
+      width: 315px;
+      height: 380px;
+      border-width: 3px;
+    }
+
+    @media screen and (max-width: $screen-xxs) {
+      width: 290px;
+      height: 340px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 25px;
+      @include dir-left(-25px);
+      width: calc(100% + 50px);
+      height: calc(100% - 50px);
+      border: 6px solid $main;
+      z-index: -1;
+      border-radius: 7px;
+
+      @media screen and (max-width: $screen-xs) {
+        border-width: 3px;
+      }
+    }
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .content {
+    .main-title {
+      margin-bottom: 30px;
+    }
+
+    .text {
+      color: #101010;
+      line-height: 1.8;
+      margin-bottom: 18px;
+
+      @include devices(xs) {
+        font-size: 13px;
+      }
+    }
+
+    .main-btn {
+      max-width: fit-content;
+    }
+  }
+}
+
+/********************* End About section *********************/
+
+/********************* Start Features section *********************/
+
+.Features-sec{
+  .content_con{
+    padding: 40px;
+    border-radius: 15px;
+    background-color: rgba($color: $main, $alpha: 0.06);
+
+    @media screen and (max-width: $screen-md) {
+      padding: 20px 15px;
+    }
+  }
+}
+.Features_cards {
+  @include grid(330px, 20px);
+
+  @media screen and (max-width: $screen-md) {
+    @include grid(300px, 20px);
+  }
+
+  .Feature_card {
+    background-color: $white;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 25px 20px;
+    border: 1px solid #e8e7e7;
+    display: flex;
+    align-items: start;
+    gap: 15px;
+    transition: $main-transition !important;
+
+    @media screen and (max-width: $screen-md) {
+      padding: 25px 15px;
+      gap: 12px;
+    }
+
+    .title {
+      font-size: 16px;
+      margin-bottom: 12px;
+      color: $black;
+      font-family: fontDemi;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 15px;
+      }
+    }
+
+    .desc {
+      font-size: 14px;
+      color: $sec;
+      line-height: 1.8;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 13px;
+      }
+    }
+
+    &:hover {
+      box-shadow: $card-shadow;
+
+      .card_icon {
+        background-color: $main;
+        color: $white !important;
+        -webkit-text-stroke-color: $white;
+
+        &::after {
+          background-color: $white;
+        }
+      }
+    }
+  }
+}
+
+.card_icon {
+  font-size: 17px;
+  flex-shrink: 0;
+  background-color: #f9f9f9;
+  color: $main;
+  width: 50px;
+  height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1.2px;
+  -webkit-text-stroke-color: $main;
+  transition: $main-transition;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: -1.5px;
+    height: 3px;
+    width: 28px;
+    background-color: $main;
+    transition: $main-transition;
+  }
+}
+
+/********************* End Features section *********************/
+
+/********************* Start services-card section *********************/
+
+.services-card {
+  position: relative;
+
+  .service-img {
+    width: 100%;
+    height: 280px;
+    border-radius: 22px;
+    overflow: hidden;
+
+    .img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: $main-transition;
+    }
+  }
+
+  .services_con {
+    height: 295px;
+
+    @media screen and (max-width: $screen-xs) {
+      height: 290px;
+    }
+  }
+
+  .service-content {
+    border-radius: 25px;
+    border: 1px solid #e8e7e7;
+    box-shadow: $card-shadow;
+    padding: 25px;
+    background-color: $white;
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 50px);
+    text-align: center;
+
+    @media screen and (max-width: $screen-md) {
+      width: calc(100% - 30px);
+      padding: 25px 15px;
+    }
+
+    .card_icon {
+      margin-bottom: 14px;
+    }
+
+    .service-name {
+      font-size: 17px;
+      margin-bottom: 14px;
+      color: #202020;
+      font-family: fontDemi;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 14px;
+      }
+    }
+
+    .desc {
+      font-size: 14px;
+      margin-bottom: 14px;
+      display: -webkit-box;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      height: 185px;
+      
+      @media screen and (max-width: $screen-xs) {
+        font-size: 13px;
+        height: auto;
+        -webkit-line-clamp: 10;
+      }
+    }
+  }
+
+  &:hover {
+    .service-img {
+      .img {
+        transform: scale(1.1) rotate(-3deg);
+      }
+    }
+
+    .card_icon {
+      background-color: $main;
+      color: $white !important;
+      -webkit-text-stroke-color: $white;
+
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+/********************* End services-card section *********************/
+
+/********************* Start service-detailes section *********************/
+
+.service-detailes {
+  .content {
+    display: flex;
+    gap: 60px;
+
+    @media screen and (max-width: $screen-lg) {
+      flex-direction: column !important;
+      align-items: center;
+      gap: 100px;
+    }
+
+    .deatiles-slider {
+      width: 380px;
+      position: relative;
+      flex-shrink: 0;
+
+      @media screen and (max-width: $screen-xs) {
+        width: 320px;
+      }
+
+      @media screen and (max-width: 350px) {
+        width: 280px;
+      }
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        z-index: -1;
+        transition: $main-transition;
+        width: 100%;
+        height: 100%;
+        border: 2px solid $main;
+        pointer-events: none;
+        border-radius: 5px;
+      }
+
+      &::before {
+        top: 15px;
+        @include dir-right(15px);
+      }
+
+      &::after {
+        top: -15px;
+        @include dir-left(15px);
+      }
+
+      .item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 5px;
+        .img {
+          height: 400px;
+          width: 100%;
+          object-fit: cover;
+
+          @media screen and (max-width: $screen-xxs) {
+            height: 280px;
+          }
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          z-index: 2;
+          top: 0;
+          left: 0;
+          transition: $main-transition;
+          width: 100%;
+          height: 100%;
+          background-color: rgba($color: #000000, $alpha: 0.3);
+        }
+
+        .fancybox-img {
+          background-color: #f9f9f9;
+          width: 42px;
+          height: 42px;
+          @include center;
+          color: $main;
+          font-size: 15px;
+          cursor: pointer;
+          transition: all 0.5s ease-in-out;
+          position: absolute;
+          top: 15px;
+          @include dir-right(15px);
+          z-index: 6;
+          border-radius: 5px;
+        }
+      }
+
+      .owl-nav {
+        position: absolute;
+        bottom: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 7px;
+        .owl-next,
+        .owl-prev {
+          width: 40px;
+          height: 40px;
+          @include center;
+          border: 1px solid $main !important;
+          background-color: $white !important;
+          color: $main !important;
+          font-size: 14px !important;
+          transition: $main-transition;
+          border-radius: 5px;
+
+          @media screen and (max-width: $screen-xxs) {
+            width: 35px;
+            height: 35px;
+            font-size: 12px !important;
+          }
+
+          &:hover {
+            background-color: $main !important;
+            color: $white !important;
+          }
+        }
+      }
+    }
+  }
+
+  &.previous-item {
+    .content {
+      @media screen and (max-width: $screen-lg) {
+        gap: 40px;
+      }
+
+      .deatiles-slider {
+        .owl-nav {
+          top: -17px;
+          bottom: unset;
+        }
+        &::after,
+        &::before {
+          display: none;
+        }
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+        border: 1px solid $main;
+        padding: 10px;
+        background-color: $white;
+
+        .item {
+          .fancybox-img {
+            background-color: $main;
+            color: $white;
+            border-radius: 50%;
+            bottom: 15px;
+            top: unset;
+            @include dir-left(15px !important);
+            @include dir-right(unset !important);
+          }
+        }
+      }
+
+      .service-det {
+        width: 100%;
+      }
+    }
+
+    &:nth-child(even) {
+      .content {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+}
+
+/********************* End service-detailes section *********************/
+
+/********************* Start client-item section *********************/
+
+.client-item {
+  border-radius: 8px;
+  background-color: $white;
+  @include center;
+  box-shadow: $main-shadow;
+  height: 120px;
+  font-size: 16px;
+
+  .brand-img {
+    max-width: 100px;
+    filter: grayscale(100%);
+    transition: all ease 0.31s;
+    opacity: 0.6;
+
+    @media screen and (max-width: $screen-xs) {
+      max-width: 85px;
+    }
+  }
+  
+
+  &:hover {
+    .brand-img {
+      filter: grayscale(0);
+      opacity: 1;
+    }
+  }
+}
+
+/********************* End client-item section *********************/
+
+/********************* Start Team section *********************/
+.team .member {
+  overflow: hidden;
+  text-align: center;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+  transition: 0.3s;
+}
+
+.team .member .member-img {
+  position: relative;
+  overflow: hidden;
+
+  .img-fluid {
+    height: 300px;
+    width: 100%;
+    transition: $main-transition;
+    object-fit: cover;
+
+    @media screen and (max-width: $screen-xs) {
+      height: 250px;
+    }
+  }
+}
+
+.team .member .member-img:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: -5px;
+  height: 100%;
+  width: 100%;
+  background: url(../imgs/team-shape.svg) no-repeat center bottom;
+  background-size: contain;
+  z-index: 1;
+}
+
+.team .member .member-info {
+  padding: 10px 15px 20px 15px;
+}
+
+.team .member .member-info h4 {
+  font-weight: 700;
+  margin-bottom: 7px;
+  font-size: 17px;
+  color: #012970;
+
+  @media screen and (max-width: $screen-xs) {
+    font-size: 15px;
+  }
+}
+
+.team .member .member-info span {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  color: #aaaaaa;
+
+  @media screen and (max-width: $screen-xs) {
+    font-size: 13px;
+  }
+}
+
+.team .member .member-info p {
+  // font-style: italic;
+  font-size: 14px;
+  padding-top: 7px;
+  line-height: 26px;
+  color: #5e5e5e;
+
+  @media screen and (max-width: $screen-xs) {
+    font-size: 12px;
+  }
+}
+
+.team .member:hover {
+  // transform: scale(1.08);
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+
+  .img-fluid {
+    transform: scale(1.15);
+  }
+}
+/********************* End Team section *********************/
+
+/********************* start Contact section *********************/
+
+.contact-style {
+  height: 100%;
+  background-color: $white;
+  border: 1px solid #e7e7e7;
+  // box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0 15px rgba(1, 41, 112, 0.08);
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  margin: 0px 12px;
+  padding: 50px;
+  border-radius: 10px;
+
+  @media screen and (max-width: $screen-sm) {
+    padding: 30px 20px;
+  }
+
+  .social-icons{
+    @include center;
+    gap: 9px;
+    .social-ic{
+      @include circle(32px);
+      background-color: $main;
+      color: #fff;
+      font-size: 12px;
+      @include center;
+    }
+  }
+}
+
+.contact-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: $black;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: $screen-xs) {
+    font-size: 14px;
+  }
+}
+
+.contact-info {
+  font-size: 14px;
+  color: $black;
+  margin-bottom: 35px;
+  line-height: 1.7;
+
+  @media screen and (max-width: $screen-xs) {
+    font-size: 13px;
+  }
+}
+
+.contact-box {
+  display: flex;
+  column-gap: 20px;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #e7e7e7;
+  padding-bottom: 25px;
+
+  &:last-child {
+    border: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .ic {
+    background: #f4f4f4;
+    color: $main;
+    line-height: 1;
+    width: 58px;
+    height: 58px;
+    @include center;
+    font-size: 15px;
+    flex-shrink: 0;
+    border-radius: 10px;
+
+    @media screen and (max-width: $screen-sm) {
+      width: 47px;
+      height: 47px;
+      font-size: 13px;
+    }
+  }
+
+  .box-content {
+    .name {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 10px;
+      line-height: 1.4;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 14px;
+        margin-bottom: 6px;
+      }
+    }
+
+    .desc {
+      font-size: 14px;
+      color: $sec;
+      line-height: 1.5;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 13px;
+      }
+    }
+  }
+}
+
+/********************* End Contact section *********************/
+
+/********************* page title *********************/
+
+.page-title {
+  position: relative;
+  height: 200px;
+  padding: 30px 0;
+
+  @media screen and (max-width: $screen-xs) {
+    height: 140px;
+    padding: 20px 0;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: -1;
+  }
+
+  .page_bg {
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: end;
+  }
+}
+
+/********************* breadcrumb *********************/
+
+.breadcrumb-con {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  // margin-bottom: 25px;
+
+  .breadcrumb-m {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 16px;
+    color: $white;
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: 15px;
+    }
+
+    &.active {
+      color: $white;
+    }
+
+    i {
+      font-size: 12px;
+    }
+  }
+}
+
+/********************* Start Gallary section *********************/
+
+.gallary {
+  .fancybox-img {
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 280px;
+    border-start-start-radius: 25px;
+    border-end-end-radius: 25px;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      background-color: rgba(0, 0, 0, 0.3);
+      transition: $main-transition;
+    }
+
+    .gallary-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: $main-transition;
+    }
+
+    &:hover {
+      &::after {
+        opacity: 0;
+      }
+
+      .gallary-img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+/********************* End Gallary section *********************/
+
+/********************* Start Video section *********************/
+
+.video-card {
+  background-color: $white;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: $main-shadow;
+
+  .video-container {
+    width: 100%;
+    height: 200px;
+    position: relative;
+
+    .player-con {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgb(0 0 0 / 60%);
+      z-index: 1;
+      @include center;
+      /* cursor: pointer; */
+
+      &:hover {
+        .play-v {
+          width: 57px;
+          height: 57px;
+          background-color: $orange;
+          outline-color: #f6731191;
+        }
+      }
+    }
+
+    .play-v {
+      background-color: rgba($color: $main, $alpha: 0.4);
+      font-size: 18px;
+      @include circle(50px);
+      color: #fff;
+      cursor: pointer;
+      @include center;
+      outline: 7px solid transparent;
+      transition: $main-transition;
+    }
+  }
+
+  .video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .video-info {
+    padding: 20px;
+    @include between;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    .video-name {
+      font-size: 15px;
+      color: $black;
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 13px;
+      }
+    }
+
+    .video-icon {
+      font-size: 15px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      color: rgb(0 55 49 / 80%);
+      @include dir-margin-left(auto);
+
+      @media screen and (max-width: $screen-xs) {
+        font-size: 14px;
+        grid-area: 8px;
+      }
+    }
+  }
+}
+
+/********************* End video section *********************/
+
+/********************* Start numbers section *********************/
+
+.our-numbers {
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 2;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+
+  .number-items {
+    @include center;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    @media screen and (max-width: $screen-sm) {
+      gap: 20px;
+    }
+
+    .number-item {
+      text-align: center;
+      color: $white;
+      border: 1px solid rgba($color: $main, $alpha: 0.65);
+      padding: 25px;
+
+      @media screen and (max-width: $screen-xs) {
+        padding: 20px 15px;
+      }
+
+      .num {
+        font-size: 30px;
+        margin-bottom: 10px;
+
+        @media screen and (max-width: $screen-sm) {
+          font-size: 25px;
+        }
+      }
+
+      .text {
+        font-size: 17px;
+
+        @media screen and (max-width: $screen-sm) {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+/********************* End numbers section *********************/
+
+/********************* Start location section *********************/
+.location-sec {
+  .social-items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    .item {
+      min-width: 170px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      background-color: #fff;
+      border-radius: 40px;
+      border: 1px solid rgba($color: #000000, $alpha: 0.1);
+      background-color: rgba($color: $main, $alpha: 0.02);
+
+      @media screen and (max-width: $screen-xxs) {
+        min-width: 165px;
+      }
+
+      @media screen and (max-width: $screen-xs) {
+        min-width: 100%;
+      }
+
+      .icon {
+        background-color: $main;
+        @include circle(36px);
+        @include center;
+        flex-shrink: 0;
+
+        .ic {
+          font-size: 12px;
+          color: $white;
+        }
+      }
+
+      .text {
+        font-size: 14px;
+        color: $black;
+        transition: $main-transition;
+
+        @media screen and (max-width: $screen-xxs) {
+          font-size: 13px;
+        }
+      }
+
+      &:hover {
+        .text {
+          color: $main;
+        }
+      }
+    }
+  }
+}
+
+// location
+.location {
+  padding: 25px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba($color: #000000, $alpha: 0.1);
+  background-color: rgba($color: $main, $alpha: 0.02);
+
+  .top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .map-icon {
+    @include circle(42px);
+    @include center;
+    background-color: $main;
+
+    .icon {
+      color: $white;
+      font-size: 14px;
+    }
+  }
+
+  .name {
+    font-size: 15px;
+    color: $black;
+    font-family: fontDemi;
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: 14px;
+    }
+  }
+
+  .time-name {
+    font-size: 15px;
+    color: $main;
+    margin-bottom: 12px;
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: 14px;
+    }
+  }
+
+  .time-num {
+    font-size: 14px;
+    color: $black;
+    padding: 0 12px;
+
+    .link {
+      color: $black;
+      gap: 7px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 7px;
+      .ic {
+        font-size: 11px;
+      }
+
+      &:hover {
+        #{$ltr} & {
+          transform: translateX(5px);
+        }
+        #{$rtl} & {
+          transform: translateX(-5px);
+        }
+        color: $main;
+      }
+    }
+
+    @media screen and (max-width: $screen-xs) {
+      font-size: 13px;
+    }
+  }
+}
+
+// map
+.map {
+  width: 100%;
+  height: 350px;
+  border-radius: 8px;
+}
+/********************* End location section *********************/
